@@ -16,6 +16,27 @@ app.get('/', function (req, res) {
   `);
 });
 
+// Send back the pushPackage
+app.get('/v(\\d)/pushPackages/web.com.leocode.login', function (req, res) {
+  // Search for the latest zipped pushPackage
+  let pushPackage = fs.readdirSync(path.resolve(__dirname, '../private')).reverse().find( (name) => !!name.match(/^.*\.zip$/) );
+  if ( pushPackage ) {
+    // Send back the package
+    res.set('Content-type', 'application/zip');
+    res.sendFile( path.resolve(__dirname, `../private/${pushPackage}`) );
+  } else {
+    // Sorry, no package found
+    res.status(404);
+    res.end();
+  }
+});
+
+// Log messages from Safari push API
+app.post('/v(\\d)/log', function (req, res) {
+  console.log('log: ', req.body.logs);
+  res.end();
+});
+
 // Serve via https
 const httpsOptions = {
   key: fs.readFileSync('./private/ssl/key.pem'),
