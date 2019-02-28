@@ -1,0 +1,8 @@
+{
+    "websiteName": "LEOCODE: ROAR!",
+    "websitePushID": "web.com.leocode.login",
+    "allowedDomains": ["https://login.leocode.com", "https://localhost:3000"],
+    "urlFormatString": "https://login.leocode.com/v%@",
+    "authenticationToken": "uNpw95u464dcgYcDBKrnZe7DHVAs2BwJ",
+    "webServiceURL": "https://localhost:3000"
+}

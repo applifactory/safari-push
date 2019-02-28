@@ -1,3 +1,7 @@
 dist
 node_modules
 .DS_Store
+private/aps.cert/*.pem
+private/aps.cert/*.cer
+private/aps.cert/*.p12
+private/pushPackage*
